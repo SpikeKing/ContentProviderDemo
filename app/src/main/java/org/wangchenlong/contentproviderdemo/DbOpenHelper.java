@@ -16,9 +16,11 @@ public class DbOpenHelper extends SQLiteOpenHelper {
 
     private static final int DB_VERSION = 1;
 
-    private String CREATE_BOOK_TABLE = "CREATE TABLE IF NOT EXISTS " + BOOK_TABLE_NAME + "(_id INTEGER PRIMARY KEY, name TEXT)";
+    private String CREATE_BOOK_TABLE = "CREATE TABLE IF NOT EXISTS "
+            + BOOK_TABLE_NAME + "(_id INTEGER PRIMARY KEY, name TEXT)";
 
-    private String CREATE_USER_TABLE = "CREATE TABLE IF NOT EXISTS " + USER_TABLE_NAME + "(_id INTEGER PRIMARY KEY, name TEXT, sex INT)";
+    private String CREATE_USER_TABLE = "CREATE TABLE IF NOT EXISTS "
+            + USER_TABLE_NAME + "(_id INTEGER PRIMARY KEY, name TEXT, sex INT)";
 
     public DbOpenHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);

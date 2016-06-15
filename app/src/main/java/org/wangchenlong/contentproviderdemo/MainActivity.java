@@ -24,31 +24,6 @@ public class MainActivity extends AppCompatActivity {
 
         mTvShowBooks = (TextView) findViewById(R.id.main_tv_show_books);
         mTvShowUsers = (TextView) findViewById(R.id.main_tv_show_users);
-
-//        Uri bookUri = BookProvider.BOOK_CONTENT_URI;
-//        Cursor bookCursor = getContentResolver().query(bookUri, new String[]{"_id", "name"}, null, null, null);
-//        if (bookCursor != null) {
-//            while (bookCursor.moveToNext()) {
-//                Book book = new Book();
-//                book.bookId = bookCursor.getInt(0);
-//                book.bookName = bookCursor.getString(1);
-//                Log.e(TAG, "query book: " + book.toString());
-//            }
-//            bookCursor.close();
-//        }
-
-//        Uri userUri = BookProvider.USER_CONTENT_URI;
-//        Cursor userCursor = getContentResolver().query(userUri, new String[]{"_id", "name", "sex"}, null, null, null);
-//        if (userCursor != null) {
-//            while (userCursor.moveToNext()) {
-//                User user = new User();
-//                user.userId = userCursor.getInt(0);
-//                user.userName = userCursor.getString(1);
-//                user.isMale = userCursor.getInt(2) == 1;
-//                Log.e(TAG, "query user:" + user.toString());
-//            }
-//            userCursor.close();
-//        }
     }
 
     /**
