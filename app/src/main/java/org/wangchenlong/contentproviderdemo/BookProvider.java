@@ -21,8 +21,8 @@ public class BookProvider extends ContentProvider {
     private static final String TAG = "DEBUG-WCL: " + BookProvider.class.getSimpleName();
 
     public static final String AUTHORITY = "org.wangchenlong.book.provider"; // 与AndroidManifest保持一致
-    public static final Uri BOOK_CONTNET_URI = Uri.parse("content://" + AUTHORITY + "/book");
-    public static final Uri USER_CONTNET_URI = Uri.parse("content://" + AUTHORITY + "/user");
+    public static final Uri BOOK_CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/book");
+    public static final Uri USER_CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/user");
 
     public static final int BOOK_URI_CODE = 0;
     public static final int USER_URI_CODE = 1;
@@ -41,6 +41,8 @@ public class BookProvider extends ContentProvider {
     @Override public boolean onCreate() {
         showLogs("onCreate 当前线程: " + Thread.currentThread().getName());
         mContext = getContext();
+
+        initProviderData(); // 初始化Provider数据
 
         return false;
     }
