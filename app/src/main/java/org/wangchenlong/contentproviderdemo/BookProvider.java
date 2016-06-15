@@ -86,13 +86,33 @@ public class BookProvider extends ContentProvider {
 
     @Override public int delete(Uri uri, String selection, String[] selectionArgs) {
         showLogs("delete");
-        return 0;
+
+        String table = getTableName(uri);
+        if (TextUtils.isEmpty(table)) {
+            throw new IllegalArgumentException("Unsupported URI: " + uri);
+        }
+        int count = mDb.delete(table, selection, selectionArgs);
+        if (count > 0) {
+            mContext.getContentResolver().notifyChange(uri, null);
+        }
+
+        return count; // 返回删除的函数
     }
 
     @Override
     public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
         showLogs("update");
-        return 0;
+
+        String table = getTableName(uri);
+        if (TextUtils.isEmpty(table)) {
+            throw new IllegalArgumentException("Unsupported URI: " + uri);
+        }
+        int row = mDb.update(table, values, selection, selectionArgs);
+        if (row > 0) {
+            mContext.getContentResolver().notifyChange(uri, null);
+        }
+
+        return row; // 返回更新的行数
     }
 
     private String getTableName(Uri uri) {
