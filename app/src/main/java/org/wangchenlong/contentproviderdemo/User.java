@@ -5,13 +5,10 @@ import android.os.Parcelable;
 
 import java.io.Serializable;
 
-public class User implements Parcelable, Serializable {
-    private static final long serialVersionUID = 519067123721295773L;
-
+public class User implements Parcelable {
     public int userId;
     public String userName;
     public boolean isMale;
-
     public Book book;
 
     public User() {
@@ -55,7 +52,7 @@ public class User implements Parcelable, Serializable {
     @Override
     public String toString() {
         return String.format(
-                "User:{userId:%s, userName:%s, isMale:%s}, with child:{%s}",
+                "[userId:%s, userName:%s, isMale:%s, book:{%s}]",
                 userId, userName, isMale, book);
     }
 
